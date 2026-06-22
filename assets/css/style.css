@@ -1,0 +1,541 @@
+/* --- СУЧАСНИЙ ДИЗАЙН ДЛЯ ARTGALLERY (2026) --- */
+
+/* Імпорт стильного та читабельного шрифту */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #f8fafc;        /* Світлий преміальний фон */
+    --surface-color: #ffffff;   /* Фон карток та блоків */
+    --text-main: #0f172a;       /* Глибокий темний для тексту */
+    --text-muted: #64748b;      /* Спокійний сірий для підписів */
+    --primary: #6366f1;         /* Трендовий індиго (основний колір) */
+    --primary-hover: #4f46e5;   /* Колір кнопок при наведенні */
+    --accent: #ff4757;          /* Акцентний колір (активні елементи, вихід) */
+    --border-color: #e2e8f0;    /* Тонкі акуратні границі */
+    --radius-lg: 16px;          /* Закруглення для великих блоків */
+    --radius-md: 12px;          /* Закруглення для кнопок та карток */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- ШАПКА САЙТУ (NAVBAR) --- */
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px); /* Ефект розмиття скла (Glassmorphism) */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, var(--primary), #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Градієнтний логотип */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--text-main);
+    background-color: #f1f5f9;
+}
+
+nav a.active {
+    color: var(--primary);
+    background-color: #eef2ff;
+    font-weight: 600;
+}
+
+/* --- ГОЛОВНИЙ КОНТЕЙНЕР --- */
+.container {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* --- КНОПКИ --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* --- ФОРМИ (ВХІД / РЕЄСТРАЦІЯ) --- */
+form {
+    background: var(--surface-color);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px #e0e7ff;
+}
+
+/* --- МЕНЮ КАТАЛОГУ / ОГЛЯД КАРТОК (КАТАЛОГ ПОБУТОВОЇ ТЕХНІКИ) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.product-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    nav a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+    .container {
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+/* ==========================================================================
+   СУЧАСНІ СТИЛІ ДЛЯ СТОРІНКИ ВХОДУ ТА РЕЄСТРАЦІЇ (БЕЗ ЗМІНИ HTML)
+   ========================================================================== */
+
+/* Контейнер-обгортка для центрування карти */
+.auth-wrapper {
+    max-width: 450px;
+    margin: 60px auto;
+    background: var(--surface-color, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: var(--radius-lg, 24px);
+    box-shadow: var(--shadow-md, 0 10px 25px -5px rgba(0, 0, 0, 0.05));
+    overflow: hidden;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Панель із вкладками (Вхід / Реєстрація) */
+.auth-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 6px;
+    border-radius: var(--radius-md, 12px);
+    margin-bottom: 30px;
+    gap: 4px;
+}
+
+/* Кожна окрема вкладка */
+.auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-muted, #64748b);
+    cursor: pointer;
+    border-radius: var(--radius-md, 12px);
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+/* Ефект наведення на неактивну вкладку */
+.auth-tab:hover:not(.active) {
+    color: var(--text-main, #0f172a);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* Активна вкладка (світиться білим) */
+.auth-tab.active {
+    background: var(--surface-color, #ffffff);
+    color: var(--primary, #6366f1);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.05));
+}
+
+/* Логіка показу/приховування форм */
+.auth-form {
+    display: none; /* За замовчуванням форми приховані */
+}
+
+.auth-form.active {
+    display: flex; /* Показуємо лише активну форму */
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Блоки з полями введення та лейблами */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+/* Назви полів (Email, Пароль, Ім'я) */
+.form-group label {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #334155;
+}
+
+/* Самі інпути (полі введення) */
+.auth-form input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--text-main, #0f172a);
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: var(--radius-md, 12px);
+    transition: all 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Ефект фокусу, коли клікаєш в поле */
+.auth-form input:focus {
+    background-color: #ffffff;
+    border-color: var(--primary, #6366f1);
+    box-shadow: 0 0 0 4px #e0e7ff;
+}
+
+/* Кнопка всередині форми */
+.auth-form .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--primary, #6366f1);
+    border: none;
+    border-radius: var(--radius-md, 12px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+    margin-top: 10px;
+}
+
+/* Ефект при наведенні на кнопку */
+.auth-form .btn:hover {
+    background: var(--primary-hover, #4f46e5);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+}
+
+.auth-form .btn:active {
+    transform: translateY(0);
+}
+/* ==========================================================================
+   СУЧАСНІ СТИЛІ ДЛЯ ПАНЕЛІ АДМІНІСТРАТОРА (БЕЗ ЗМІНИ HTML)
+   ========================================================================== */
+
+/* Загальний макет адмінки (Бокова панель + Контент) */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color, #f8fafc);
+}
+
+/* --- СТИЛІЗАЦІЯ БОКОВОЇ ПАНЕЛІ (SIDEBAR) --- */
+.sidebar {
+    width: 260px;
+    background-color: #0f172a; /* Глибокий темний колір */
+    padding: 24px 16px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.02);
+    z-index: 10;
+}
+
+.sidebar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 0 12px 24px 12px;
+    border-bottom: 1px solid #1e293b;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-menu li a {
+    display: block;
+    color: #94a3b8; /* Спокійний сірий текст */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: var(--radius-md, 12px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Ефект наведення на пункт меню */
+.sidebar-menu li a:hover {
+    color: #ffffff;
+    background-color: #1e293b;
+}
+
+/* Активний пункт меню в боковій панелі */
+.sidebar-menu li a.active {
+    color: #ffffff;
+    background-color: var(--primary, #6366f1);
+    font-weight: 600;
+}
+
+/* --- ГОЛОВНИЙ КОНТЕНТ АДМІНКИ --- */
+.admin-content {
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Перемикання секцій */
+.admin-section {
+    display: none; /* За замовчуванням приховані */
+}
+
+.admin-section.active {
+    display: flex; /* Показуємо тільки активну */
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- ФОРМА ДОДАВАННЯ КАРТИНИ --- */
+.admin-form {
+    background: var(--surface-color, #ffffff);
+    padding: 30px;
+    border-radius: var(--radius-lg, 24px);
+    border: 1px solid var(--border-color, #e2e8f0);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.05));
+    max-width: 600px;
+}
+
+.admin-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Інпути форми в адмінці */
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="file"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--text-main, #0f172a);
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: var(--radius-md, 12px);
+    transition: all 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+/* ==========================================================================
+   СТИЛІ ДЛЯ СИСТЕМИ ОПЛАТИ GOOGLE PAY У КОШИКУ
+   ========================================================================== */
+
+/* Контейнер для блоку оплати внизу кошика */
+.checkout-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-color, #e2e8f0);
+    gap: 15px;
+}
+
+/* Кнопка Google Pay (фірмовий стиль) */
+.gpay-button-ui {
+    background-color: #000000;
+    color: #ffffff;
+    min-width: 240px;
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gpay-button-ui:hover {
+    background-color: #202124;
+    transform: translateY(-1px);
+}
+
+.gpay-button-ui:active {
+    transform: translateY(0);
+}
+
+/* Модальне вікно симуляції платежу */
+.payment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6); /* затемнення */
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-modal.active {
+    display: flex;
+}
+
+.payment-card {
+    background: #ffffff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+    background: #e6f4ea;
+    color: #137333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 20px auto;
+}
+.admin-form input:focus {
+    background-color: #ffffff;
+    border-color: var
